@@ -6,11 +6,11 @@
         <div class="col-md-8" style="height: 100px;">
             <a class="btn btn-success btn-sm float-right" href="{{ route('posts.create') }}"> Criar post</a>
         </div>
-        
+
         <div class="col-md-8">
-            
+
             <div class="card">
-               
+
                 <div class="card-header">Listando todos Posts</div>
                 <div class="card-body">
                     @if (session('status'))
@@ -29,12 +29,8 @@
                                     <th>Imagem</th>
                                     <th>Ação</th>
                                 </tr>
-                               
                             </thead>
-                            
                         </table>
-                        
-
                       </div>
                 </div>
             </div>
@@ -46,7 +42,7 @@
 @endsection
 
 @section('scripts')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">   
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
 <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
@@ -58,7 +54,7 @@
     $(document).ready(function(){
         $.noConflict();
         var dataTableCustom = $.fn.dataTable.defaults;
-       
+
     var table = $("#basic-laratable").DataTable({
         serverSide: true,
         ajax: "{{ route('posts_table') }}",
@@ -71,8 +67,8 @@
                 render: function ( file_id ) {
                     console.log(file_id);
                     return file_id ?
-                        '<img width="100px" src="storage/'+file_id+'"/>' :
-                        
+                        '<img width="100px" src="'+file_id+'"/>' :
+
                         null;
                 },
                 defaultContent: "No image",
@@ -80,7 +76,7 @@
             },
             {name: 'actions', orderable: false, searchable: false},
         ],
-     
+
     });
 
 
@@ -96,8 +92,8 @@
         console.error('The element needs "data-ref" and ("data-id" or "data-href") attributes!');
         return;
     }
-    
-   
+
+
     bootbox.confirm({
         title: '<i class="fas fa-exclamation-triangle"></i> Atenção!',
         message: 'Tem certeza de que deseja deletar este registro?!',
@@ -135,7 +131,7 @@
         }
     });
 });
-    
+
 });
 </script>
 @endsection

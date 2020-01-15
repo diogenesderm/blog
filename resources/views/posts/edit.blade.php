@@ -11,9 +11,8 @@
                 <div class="form-group">
                     <label for="Imagem">Imagem</label>
                 <input name="image" type="file" class="form-control" id="imagem"  placeholder="Imagem" value="{{$posts->image}}">
-                    <img  src="{{ route('img',['path'=> $posts->image . '?w=900&h=100&fit=crop'])  }}" alt=""> 
-                  
-                   
+                    <img  src="{{ url('glide/'.$posts->image.'?w=100')  }}" alt="">
+
                   </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Titulo</label>
@@ -50,7 +49,7 @@
                       @if($posts->hasTag($tag->id))
                         selected
                       @endif
-                      
+
                     >{{$tag->name}}</option>
                       @endforeach
                     </select>

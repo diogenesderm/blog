@@ -32,4 +32,6 @@ Route::get('/basic_laratable', 'PostsController@datatables')->name('basic_larata
 
 Route::get('/posts_table', 'PostsController@postsTable')->name('posts_table');
 
-Route::get('/img/{path}', 'ImageController@show')->where('path', '.*')->name('img');
+Route::get('/glide/uploads/{path}', 'ImageController@show')->where('path', '.+')->name('glide');
+
+Route::get('/arquivos', 'FilesController@index')->name('arquivos');
