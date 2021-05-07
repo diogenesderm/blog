@@ -12,7 +12,7 @@
         "barryvdh/laravel-elfinder": "^0.4.4",
         "fideloper/proxy": "^4.0",
         "freshbitsweb/laratables": "^2.1",
-        "laravel/framework": "5.8.*",
+        "laravel/framework": "6.18.*",
         "laravel/tinker": "^1.0",
         "league/glide": "^1.5",
         "league/glide-laravel": "^1.0",
